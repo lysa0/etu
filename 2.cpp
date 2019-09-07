@@ -3,7 +3,7 @@
 #define RED(a) "\e\[31m" a "\e\[0m"
 #define ASSERT(m, t) if(!(m)) cout << RED(t": fail. not "#m"!!!") << endl; else cout << GREEN(t": ok.") << endl;
 #define MNTS_SIZE 52
-#define eps 1e-200
+#define eps 1e-320
 
 using namespace std;
 
@@ -66,13 +66,13 @@ vector<int> get_bitmap_by_long(long number, vector<int> bytes={}, int depth=0){
   return bytes;
 }
 
-vector<int> get_mantissa(double number, int depth=0, vector<int> bytes={}){
-  if (number==0. || depth>MNTS_SIZE) return bytes;
+vector<int> get_mantissa(double number, int depth=0, vector<int> bytes={}, int mnts_size=52){
+  if (number<eps || depth>mnts_size) return bytes;
   double a=1./(double)pow(2.,depth);
-  int byte=number-a<0.?0:1;
+  int byte=number-a<eps?0:1;
   //cout << a << ' ' << number << ' ' << depth << ' ' << byte << endl;
   bytes.push_back(byte);
-  return get_mantissa(number-a*byte, ++depth, bytes);
+  return get_mantissa(number-a*byte, ++depth, bytes, mnts_size);
 }
 
 template<class T> int get_deg(T & number){
@@ -89,7 +89,7 @@ template<class T> int get_deg(T & number){
 
 vector<int> binary_repr(float number){
   int deg=get_deg(number);
-  vector<int> mantissa = get_mantissa(abs(number/(pow(2,deg)+eps)));
+  vector<int> mantissa = get_mantissa(abs(number/(pow(2,deg)+eps)),0,{},23);
   //cout << mantissa.size() << endl;
   //cout << "mantissa:" << endl;
   //print(mantissa);
