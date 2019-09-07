@@ -258,7 +258,7 @@ void print(vector<int> v, double number){
 
 
 void short_to_bitmap(){
-  cout << "Print short value between -32'768 and 32'767" << endl;
+  cout << "Enter short value between -32'768 and 32'767" << endl;
   short number{};
   cin >> number;
   vector<int> result=binary_repr(number);
@@ -266,7 +266,7 @@ void short_to_bitmap(){
 }
 
 void int_to_bitmap(){
-  cout << "Print integer value between -2'147'483'648 and 2'147'483'647" << endl;
+  cout << "Enter integer value between -2'147'483'648 and 2'147'483'647" << endl;
   int number{};
   cin >> number;
   vector<int> result=binary_repr(number);
@@ -274,7 +274,7 @@ void int_to_bitmap(){
 }
 
 void long_to_bitmap(){
-  cout << "Print long integer value between  -9'223'372'036'854'775'808 and 9'223'372'036'854'775'807" << endl;
+  cout << "Enter long integer value between  -9'223'372'036'854'775'808 and 9'223'372'036'854'775'807" << endl;
   long number{};
   cin >> number;
   vector<int> result=binary_repr(number);
@@ -282,7 +282,7 @@ void long_to_bitmap(){
 }
 
 void float_to_bitmap(){
-  cout << "Print float value between 1.175494351e-38 and 3.402823466e+38" << endl;
+  cout << "Enter float value between 1.175494351e-38 and 3.402823466e+38" << endl;
   float number{};
   cin >> number;
   vector<int> result=binary_repr(number);
@@ -290,7 +290,7 @@ void float_to_bitmap(){
 }
 
 void double_to_bitmap(){
-  cout << "Print double float value between -2.2250738585072014e-308, 1.7976931348623158e+308" << endl;
+  cout << "Enter double float value between -2.2250738585072014e-308, 1.7976931348623158e+308" << endl;
   double number{};
   cin >> number;
   vector<int> result=binary_repr(number);
