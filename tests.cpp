@@ -1,10 +1,7 @@
-#include<bits/stdc++.h>
-using namespace std;
-
 void tests(){
   int_tests();
   short_tests();
-  long_tests();
+  uint_tests();
   float_tests();
   double_tests();
 }
@@ -15,20 +12,20 @@ void int_tests(){
   vector<int> result=binary_repr(number);
   print(result);
   vector<int> expected{0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0};
-  ASSERT(expected == result, "test 1");
+  ASSERT(expected, result, "test 1");
 
   number=1;
   result=binary_repr(number);
   print(result);
   expected = {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1};
-  ASSERT(expected == result, "test 2");
+  ASSERT(expected, result, "test 2");
  
 
   number=1023;
   result=binary_repr(number);
   print(result);
   expected = {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,1,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 3");
+  ASSERT(expected, result, "test 3");
  
 
 
@@ -36,14 +33,14 @@ void int_tests(){
   result=binary_repr(number);
   print(result);
   expected = {1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1};
-  ASSERT(expected == result, "test 4");
+  ASSERT(expected, result, "test 4");
  
 
-  number=-511;
+  number=-512;
   result=binary_repr(number);
   print(result);
   expected = {1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 5");
+  ASSERT(expected, result, "test 5");
  
 }
 
@@ -53,20 +50,20 @@ void short_tests(){
   vector<int> result=binary_repr(number);
   print(result);
   vector<int> expected{0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0};
-  ASSERT(expected == result, "test 6");
+  ASSERT(expected, result, "test 6");
 
   number=1;
   result=binary_repr(number);
   print(result);
   expected = {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1};
-  ASSERT(expected == result, "test 7");
+  ASSERT(expected, result, "test 7");
  
 
   number=1023;
   result=binary_repr(number);
   print(result);
   expected = {0,0,0,0, 0,0,1,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 8");
+  ASSERT(expected, result, "test 8");
  
 
 
@@ -74,52 +71,37 @@ void short_tests(){
   result=binary_repr(number);
   print(result);
   expected = {1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1};
-  ASSERT(expected == result, "test 9");
+  ASSERT(expected, result, "test 9");
  
 
   number=-511;
   result=binary_repr(number);
   print(result);
   expected = {1,0,0,0, 0,0,0,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 10");
+  ASSERT(expected, result, "test 10");
  
 }
 
 
-void long_tests(){
-  long number=0;
+void uint_tests(){
+  unsigned int number=0;
   vector<int> result=binary_repr(number);
   print(result);
-  vector<int> expected{0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0};
-  ASSERT(expected == result, "test 11");
+  vector<int> expected{0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0};
+  ASSERT(expected, result, "test 11");
 
-  number=1;
+  number=511;
   result=binary_repr(number);
   print(result);
-  expected = {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1};
-  ASSERT(expected == result, "test 12");
+  expected = {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 1,1,1,1, 1,1,1,1, 1,1,1,1};
+  ASSERT(expected, result, "test 12");
  
 
-  number=9223372036854775807;
+  number=pow(2,32)-1;
   result=binary_repr(number);
   print(result);
-  expected = {0,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 13");
- 
-
-
-  number=-1;
-  result=binary_repr(number);
-  print(result);
-  expected = {1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1};
-  ASSERT(expected == result, "test 14");
- 
-
-  number=-9223372036854775807;
-  result=binary_repr(number);
-  print(result);
-  expected = {1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 15");
+  expected = {1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1};
+  ASSERT(expected, result, "test 13");
  
 }
 
@@ -129,35 +111,35 @@ void float_tests(){
   vector<int> result=binary_repr(number);
   print(result);
   vector<int> expected{0,1,0,0, 0,0,0,0, 0,1,0,0, 1,0,0,0, 1,1,1,1, 0,1,0,1, 1,1,0,0, 0,0,1,0};
-  ASSERT(expected == result, "test 16");
+  ASSERT(expected, result, "test 16");
 
 
   number=0.;
   result=binary_repr(number);
   print(result);
   expected = {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0};
-  ASSERT(expected == result, "test 17");
+  ASSERT(expected, result, "test 17");
  /*
 
   number=9223372036854775807;
   result=binary_repr(number);
   print(result);
   expected = {0,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 18");
+  ASSERT(expected, result, "test 18");
  
 
   number=-1;
   result=binary_repr(number);
   print(result);
   expected = {1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1};
-  ASSERT(expected == result, "test 19");
+  ASSERT(expected, result, "test 19");
  
 
   number=-9223372036854775807;
   result=binary_repr(number);
   print(result);
   expected = {1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 20");
+  ASSERT(expected, result, "test 20");
   */
 }
 
@@ -167,34 +149,34 @@ void double_tests(){
   vector<int> result=binary_repr(number);
   print(result);
   vector<int> expected{0,1,0,0, 0,0,0,0, 0,0,0,0, 1,0,0,1, 0,0,0,1, 1,1,1,0, 1,0,1,1, 1,0,0,0, 0,1,0,1, 0,0,0,1, 1,1,1,0, 1,0,1,1, 1,0,0,0, 0,1,0,1, 0,0,0,1, 1,1,1,0};
-  ASSERT(expected == result, "test 21");
+  ASSERT(expected, result, "test 21");
 
 
   number=0.;
   result=binary_repr(number);
   print(result);
   expected = {0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0};
-  ASSERT(expected == result, "test 22");
+  ASSERT(expected, result, "test 22");
  /*
 
   number=9223372036854775807;
   result=binary_repr(number);
   print(result);
   expected = {0,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 23");
+  ASSERT(expected, result, "test 23");
  
 
   number=-1;
   result=binary_repr(number);
   print(result);
   expected = {1,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,0, 0,0,0,1};
-  ASSERT(expected == result, "test 24");
+  ASSERT(expected, result, "test 24");
  
 
   number=-9223372036854775807;
   result=binary_repr(number);
   print(result);
   expected = {1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1, 1,1,1,1};
-  ASSERT(expected == result, "test 25");
+  ASSERT(expected, result, "test 25");
   */
 }
