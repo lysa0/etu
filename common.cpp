@@ -31,7 +31,6 @@ template<class T> int get_deg(T & number){
   return deg;
 }
 
-
 vector<int> binary_repr(float number){
   int deg=get_deg(number);
   float mantissa=number/(pow(2., deg));
@@ -122,13 +121,27 @@ vector<int> binary_repr(unsigned int number){
 }
 
 
-void print(vector<int> v){ 
+void print(vector<int> v, unsigned int number){ 
   int cnt{};
   for (vector<int>::const_iterator byte = v.begin(); byte!=v.end(); ++byte){
     cnt++;
-    if (byte == v.begin())
-      cout << *byte << ' ';
-    else
+      if(*byte){
+        //string a=GREEN(str_byte);
+        cout << GREEN(+to_string(*byte)+);
+      }
+      else
+        cout << (*byte);
+    //cout << endl << byte-v.begin() << endl;
+    if (cnt%4==0)
+      cout << ' ';
+  }
+  cout << endl;
+}
+
+void print(vector<int> v, short number){ 
+  int cnt{};
+  for (vector<int>::const_iterator byte = v.begin(); byte!=v.end(); ++byte){
+    cnt++;
       if(*byte){
         //string a=GREEN(str_byte);
         cout << GREEN(+to_string(*byte)+);
@@ -200,47 +213,4 @@ void print(vector<int> v, double number){
       cout << ' ';
   }
   cout << endl;
-}
-
-
-
-
-void short_to_bitmap(){
-  cout << "Enter short value between -32'768 and 32'767" << endl;
-  short number{};
-  cin >> number;
-  vector<int> result=binary_repr(number);
-  print(result);
-}
-
-void int_to_bitmap(){
-  cout << "Enter integer value between -2'147'483'648 and 2'147'483'647" << endl;
-  int number{};
-  cin >> number;
-  vector<int> result=binary_repr(number);
-  print(result);
-}
-
-void uint_to_bitmap(){
-  cout << "Enter uint integer value between  -9'223'372'036'854'775'808 and 9'223'372'036'854'775'807" << endl;
-  uint number{};
-  cin >> number;
-  vector<int> result=binary_repr(number);
-  print(result);
-}
-
-void float_to_bitmap(){
-  cout << "Enter float value between 1.175494351e-38 and 3.402823466e+38" << endl;
-  float number{};
-  cin >> number;
-  vector<int> result=binary_repr(number);
-  print(result);
-}
-
-void double_to_bitmap(){
-  cout << "Enter double float value between -2.2250738585072014e-308, 1.7976931348623158e+308" << endl;
-  double number{};
-  cin >> number;
-  vector<int> result=binary_repr(number);
-  print(result);
 }
