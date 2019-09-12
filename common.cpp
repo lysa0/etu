@@ -17,9 +17,9 @@ vector<int> get_mantissa(double number, int depth=0, vector<int> bytes={}, int m
 	if (number<eps || depth>mnts_size) return bytes;
 	double a=1./(double)pow(2.,depth);
 	int byte=abs(number-a)<eps?1:number-a<eps?0:1;
-	//cout << number-a << ' ' << a << ' ' << number << ' ' << depth << ' ' << byte << endl;
+	cout << number-a << ' ' << a << ' ' << number << ' ' << depth << ' ' << byte << endl;
 	bytes.push_back(byte);
-	return get_mantissa(number-a*1, ++depth, bytes, mnts_size);
+	return get_mantissa(number-a*byte, ++depth, bytes, mnts_size);
 }
 
 template<class T> int get_deg(T & number){
