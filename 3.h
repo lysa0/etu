@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 #include "common.h"
 #include "common.cpp"
+#include "tests.h"
+#include "tests.cpp"
 
 using namespace std;
 

@@ -1,3 +1,5 @@
+#include "tests.h"
+
 void tests(){
   int_tests();
   short_tests();
@@ -5,7 +7,6 @@ void tests(){
   float_tests();
   double_tests();
 }
-
 
 void int_tests(){
   int number=0;
