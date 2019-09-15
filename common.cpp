@@ -34,7 +34,7 @@ template<class T> int get_deg(T & number){
 	else
 		if (number<1.)
 			while(--deg && number/pow(2, deg)<1.);
-	cout << deg << " deg" << endl;
+	//cout << deg << " deg" << endl;
 	return deg;
 }
 
@@ -50,7 +50,7 @@ vector<int> binary_repr(float number){
 			mantissa_bm.push_back(0);
 	mantissa_bm.erase(mantissa_bm.begin()+1);
 	vector<int> exponenta = get_bitmap_by_long_long(deg+127);
-	cout << mantissa_bm.size() << endl;
+	//cout << mantissa_bm.size() << endl;
 	//exponenta.push_back(sign(deg));
 	//cout << exponenta.size() << endl;
 	//cout << "exponenta:" << endl;
@@ -68,11 +68,11 @@ vector<int> binary_repr(float number){
 vector<int> binary_repr(double number){
 	int _sign = sign(number);
 	number=(double)fabs(number);
-	cout << number << endl;
+	//cout << number << endl;
 	int deg=get_deg(number);
-	cout << deg << endl;
+	//cout << deg << endl;
 	double mantissa=number/(pow(2., deg));
-	cout << mantissa << endl;
+	//cout << mantissa << endl;
 	vector<int> mantissa_bm = (mantissa>=2.)?vector<int>{1}:get_mantissa(abs(number/(pow(2,deg)))-1	);
 	//cout << mantissa_bm.size() << endl;
 	//cout << "mantissa_bm:" << endl;
