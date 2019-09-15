@@ -1,7 +1,7 @@
 #include "2.h"
 
 int main(){
-  tests();
+  //tests();
   cout << "Type of data? [short (S/s), int (I/i), uint (U/u), float (F/f), double (D/d)]" << endl;
   char type_of_data{};
   cin >> type_of_data;

@@ -1,7 +1,7 @@
 #include "3.h"
 
 int main(){
-  tests();
+  //tests();
   cout << "Type of data? [short (S/s), int (I/i), uint (U/u), float (F/f), double (D/d)]" << endl;
   char type_of_data{};
   cin >> type_of_data;
@@ -46,10 +46,12 @@ void change_bytes_float(){
   cout << "Enter float value between 1.175494351e-38 and 3.402823466e+38" << endl;
   cin >> number;
   vector<int> bitmap=binary_repr(number);
-  map<int, int> bytes = get_bytes(bitmap.size());
   print(bitmap, number);
+  map<int, int> bytes = get_bytes(bitmap.size());
   vector<int> result=change_bytes(bitmap, bytes);
   print(result, number);
+  float changed_number = get_float_by_bitmap(result);
+  cout << changed_number << endl;
 }
 
 void change_bytes_double(){
@@ -57,10 +59,12 @@ void change_bytes_double(){
     cout << "Enter double float value between -2.2250738585072014e-308, 1.7976931348623158e+308" << endl;
   cin >> number;
   vector<int> bitmap=binary_repr(number);
-  map<int, int> bytes = get_bytes(bitmap.size());
   print(bitmap, number);
+  map<int, int> bytes = get_bytes(bitmap.size());
   vector<int> result=change_bytes(bitmap, bytes);
   print(result, number);
+  double changed_number = get_double_by_bitmap(result);
+  cout << changed_number << endl;
 }
 
 void change_bytes_int(){
@@ -68,10 +72,12 @@ void change_bytes_int(){
   cout << "Enter integer value between -2'147'483'648 and 2'147'483'647" << endl;
   cin >> number;
   vector<int> bitmap=binary_repr(number);
-  map<int, int> bytes = get_bytes(bitmap.size());
   print(bitmap, number);
+  map<int, int> bytes = get_bytes(bitmap.size());
   vector<int> result=change_bytes(bitmap, bytes);
   print(result, number);
+  int changed_number = get_int_by_bitmap(result);
+  cout << changed_number << endl;
 }
 
 
@@ -80,10 +86,12 @@ void change_bytes_uint(){
   cout << "Enter uint integer value between 0 and 4'294'967'295" << endl;
   cin >> number;
   vector<int> bitmap=binary_repr(number);
-  map<int, int> bytes = get_bytes(bitmap.size());
   print(bitmap, number);
+  map<int, int> bytes = get_bytes(bitmap.size());
   vector<int> result=change_bytes(bitmap, bytes);
   print(result, number);
+  unsigned int changed_number = get_uint_by_bitmap(result);
+  cout << changed_number << endl;
 }
 
 
@@ -92,9 +100,11 @@ void change_bytes_short(){
   cout << "Enter short value between -32'768 and 32'767" << endl;
   cin >> number;
   vector<int> bitmap=binary_repr(number);
-  map<int, int> bytes = get_bytes(bitmap.size());
   print(bitmap, number);
+  map<int, int> bytes = get_bytes(bitmap.size());
   vector<int> result=change_bytes(bitmap, bytes);
   print(result, number);
+  short changed_number = get_short_by_bitmap(result);
+  cout << changed_number << endl;
 }
 
