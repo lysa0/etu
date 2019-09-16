@@ -272,7 +272,7 @@ float get_float_by_bitmap(vector<int> bitmap){
 	mantissa_bm.insert(mantissa_bm.begin(), bitmap.begin()+9, bitmap.end());
 	vector<int> exponenta_bm{};
 	exponenta_bm.insert(exponenta_bm.begin(), ++bitmap.begin(), bitmap.begin()+9);
-	print(exponenta_bm, 1);
+	//print(exponenta_bm, 1);
 	//cout << exponenta_bm.size() << " " << mantissa_bm.size() << endl;
 	//reverse(exponenta_bm.begin(),exponenta_bm.end());
 	int exponenta = get_uint_by_bitmap(exponenta_bm)-127;
@@ -283,7 +283,7 @@ float get_float_by_bitmap(vector<int> bitmap){
 	 	deg--;
 	 	//cout << mantissa << " " << *byte << " m" << endl;
 	}
-	//cout << mantissa << " " << exponenta << endl;
+	cout << "mantissa="<< mantissa << " exponenta=" << exponenta << endl;
 	double number = bitmap[0]?-mantissa*pow(2, exponenta):mantissa*pow(2, exponenta);
 	return number;
 }
@@ -292,7 +292,7 @@ double get_double_by_bitmap(vector<int> bitmap){
 	mantissa_bm.insert(mantissa_bm.begin(), bitmap.begin()+12, bitmap.end());
 	vector<int> exponenta_bm{};
 	exponenta_bm.insert(exponenta_bm.begin(), ++bitmap.begin(), bitmap.begin()+12);
-	print(exponenta_bm, 1);
+	//print(exponenta_bm, 1);
 	//cout << exponenta_bm.size() << " " << mantissa_bm.size() << endl;
 	//reverse(exponenta_bm.begin(),exponenta_bm.end());
 	int exponenta = get_uint_by_bitmap(exponenta_bm)-1023;
@@ -303,7 +303,7 @@ double get_double_by_bitmap(vector<int> bitmap){
 	 	deg--;
 	 	//cout << mantissa << " " << *byte << " m" << endl;
 	}
-	//cout << mantissa << " " << exponenta << endl;
+	cout << "mantissa="<< mantissa << " exponenta=" << exponenta << endl;
 	double number = bitmap[0]?-mantissa*pow(2, exponenta):mantissa*pow(2, exponenta);
 	return number;
 }
